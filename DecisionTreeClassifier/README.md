@@ -1,3 +1,4 @@
+```python
 from sklearn import tree   
 
 #[height,weight,shoe-size]
@@ -13,3 +14,4 @@ clf = clf.fit(x,y)
 
 prediction = clf.predict([[160,60,40]])
 print(prediction)
+```
