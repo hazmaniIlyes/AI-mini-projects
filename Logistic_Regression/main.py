@@ -63,14 +63,14 @@ plt.legend()
 plt.show()
 
 #Inspect coefficients (feature influence)
-coefficients = lr.coef_.ravel()   # shape (30,)
+coefficients = lr.coef_.ravel()   # reshape from 2D to 1D
 coef_df = pd.DataFrame({'feature': feature_names, 'coef': coefficients})
 coef_df['abs_coef'] = np.abs(coef_df['coef'])
 coef_df = coef_df.sort_values('abs_coef', ascending=False)
 print(coef_df.head(10))   # top 10 influential features
 
 #Decision boundary visualization (2 features)
-# pick two features for visualization (e.g., mean radius & mean texture)
+# pick two features for visualization
 feat_idx = [0, 1]  # indices of chosen features
 X2 = X[:, feat_idx]
 y2 = y
@@ -116,3 +116,7 @@ plt.show()
 #max_iter: Maximum number of iteration for convergence
 # class_wight: {None: data is balanced,balanced: dataset
 # is imbalanced,{0: 1, 1: 3}: when you know which class is more important}
+#Evlauation using confusion matirix and accuracy precision recall f1score
+#we did appoximetly the same process but with just 2 features (most influent features)
+# and we used pipeline to assure scaling (preprocessing + train model)
+# Finally plotting
